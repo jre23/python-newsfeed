@@ -8,4 +8,8 @@ def create_app(test_config=None):
     SECRET_KEY="super_secret_key" # used when creating server-side sessions
   )
 
+  @app.route('/hello')
+  def hello():
+    return 'hello world'
+
   return app
