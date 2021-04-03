@@ -1,4 +1,4 @@
-from app.models import User, Post
+from app.models import User, Post, Comment
 from app.db import Session, Base, engine
 
 Base.metadata.drop_all(engine)
@@ -31,6 +31,18 @@ db.add_all([
 ])
 
 # use commit() to run the insert statements above for posts
+db.commit()
+
+# define comments to insert
+db.add_all([
+  Comment(comment_text='Nunc rhoncus dui vel sem.', user_id=1, post_id=2),
+  Comment(comment_text='Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.', user_id=1, post_id=3),
+  Comment(comment_text='Aliquam erat volutpat. In congue.', user_id=2, post_id=1),
+  Comment(comment_text='Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.', user_id=2, post_id=3),
+  Comment(comment_text='In hac habitasse platea dictumst.', user_id=3, post_id=3)
+])
+
+# use commit() to run the insert statements above for comment
 db.commit()
 
 # close the session
