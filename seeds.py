@@ -9,7 +9,7 @@ Base.metadata.create_all(engine)
 # Session variable generates temporary connections for performing CRUD operations
 db = Session()
 
-# insert users
+# define user data to insert
 db.add_all([
   User(username='alesmonde0', email='nwestnedge0@cbc.ca', password='password123'),
   User(username='jwilloughway1', email='rmebes1@sogou.com', password='password123'),
@@ -18,6 +18,8 @@ db.add_all([
   User(username='djiri4', email='gmidgley4@weather.com', password='password123')
 ])
 
+# use commit() to run the insert statements above
 db.commit()
 
+# close the session
 db.close()
