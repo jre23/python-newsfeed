@@ -1,4 +1,4 @@
-from app.models import User, Post, Comment
+from app.models import User, Post, Comment, Vote
 from app.db import Session, Base, engine
 
 Base.metadata.drop_all(engine)
@@ -43,6 +43,18 @@ db.add_all([
 ])
 
 # use commit() to run the insert statements above for comment
+db.commit()
+
+# define vote count
+db.add_all([
+  Vote(user_id=1, post_id=2),
+  Vote(user_id=1, post_id=4),
+  Vote(user_id=2, post_id=4),
+  Vote(user_id=3, post_id=4),
+  Vote(user_id=4, post_id=2)
+])
+
+# use commit() to run the insert statements above for votes
 db.commit()
 
 # close the session
