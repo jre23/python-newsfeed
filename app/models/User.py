@@ -15,7 +15,7 @@ class User(Base):
 
   @validates('email')
   def validate_email(self, key, email):
-    # validates email contain @ character
+    # validates email contains @ character
     assert '@' in email
     
     return email
