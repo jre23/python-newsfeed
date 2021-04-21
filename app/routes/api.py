@@ -2,7 +2,7 @@ from flask import Blueprint, request, jsonify, session
 from app.models import User, Post, Comment, Vote
 from app.db import get_db
 import sys
-from app.utils import login_required
+from app.utils.auth import login_required
 
 bp = Blueprint('api', __name__, url_prefix='/api')
 
