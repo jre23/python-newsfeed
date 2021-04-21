@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, session
 from app.models import Post
 from app.db import get_db
-from app.utils import login_required
+from app.utils.auth import login_required
 
 bp = Blueprint('dashboard', __name__, url_prefix='/dashboard')
 
