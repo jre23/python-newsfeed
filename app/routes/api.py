@@ -109,8 +109,60 @@ def upvote():
   
   return '', 204
 
+# matches with /api/posts
+@bp.route('/posts', methods=['POST'])
+def create():
+  data = request.get_json()
+  db = get_db()
+
+  try:
+    newPost = Post(
+      title = data['title'],
+      post_url = data['post_url'],
+      user_id = session.get('user_id'),
+    )
+
+    db.add(newPost)
+    db.commit()
+  except:
+    print(sys.exc_info()[0])
+
+    db.rollback()
+    return jsonify(message = 'Post failed'), 500
   
-# @bp.route('/posts', methods=['POST'])
-# def post():
-#   data = request.get_json()
-#   db = get_db()
+  return jsonify(id = newPost.id)
+
+# matches with /api/posts/<id>
+@bp.route('/posts/<id>', methods=['PUT'])
+def update(id):
+  data = request.get_json()
+  db = get_db()
+
+  try:
+    # when updating, SQLAlchemy requires a query
+    post = db.query(Post).filter(Post.id == id).one()
+    post.title = data['title'] # then update the object
+    db.commit() # then recommit
+  except:
+    print(sys.exc_info()[0])
+
+    db.rollback()
+    return jsonify(message = 'Post not found'), 404
+
+  return '', 204
+
+# matches with /api/posts/<id>
+@bp.route('/posts/<id>', methods=['DELETE'])
+def delete(id):
+  db = get_db()
+
+  try:
+    db.delete(db.query(Post).filter(Post.id == id).one())
+    db.commit()
+  except:
+    print(sys.exc_info()[0])
+    
+    db.rollback()
+    return jsonify(message = 'Post not found'), 404
+  
+  return '', 204
