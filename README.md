@@ -20,17 +20,17 @@ The goal for this project was to refactor a news feed app where users can post, 
 
 [GitHub Repo](https://github.com/jre23/python-newsfeed)
 
-[Heroku Deployment]()
+[Heroku Deployment](https://python-newsfeed-jre23.herokuapp.com)
 
 ## Screenshots
 
-![python newsfeed screenshot 1]()
+![python newsfeed screenshot 1](https://user-images.githubusercontent.com/69170823/115649196-b7caf080-a2db-11eb-9bda-9e98500fc332.png)
 
-![python newsfeed screenshot 2]()
+![python newsfeed screenshot 2](https://user-images.githubusercontent.com/69170823/115649046-6f133780-a2db-11eb-8cdf-a978a502286c.png)
 
-![python newsfeed screenshot 3]()
+![python newsfeed screenshot 3](https://user-images.githubusercontent.com/69170823/115649145-9ec23f80-a2db-11eb-839b-a5cce588f610.png)
 
-![python newsfeed screenshot 4]()
+![python newsfeed screenshot 4](https://user-images.githubusercontent.com/69170823/115649271-e052ea80-a2db-11eb-9e47-81aeca5a6337.png)
 
 ## Technologies
 
@@ -46,6 +46,7 @@ Please see the following for a list of technologies used in this project:
 - SQLAlchemy
 - MySQL
 - Gunicorn
+- Heroku
 
 ## Installation
 
